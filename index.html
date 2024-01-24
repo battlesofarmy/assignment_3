@@ -12,6 +12,8 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" type="text/css" />
     <!-- Add Tailwind Css CDN  -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js -->
+    <script src="//unpkg.com/alpinejs" defer></script>
     <style>
       .mycolor{
           color: #FF4240;
@@ -61,17 +63,105 @@
         <!-- Right Section - Search Icon and Button -->
         <div class="lg:flex items-center space-x-4 order-4">
           <i class="fas fa-search text-gray-800 mr-4 text-xl hidden lg:flex"></i>
-          <a href="#" class="bg-red-500 text-white px-4 py-2 rounded">Button</a>
+          <a href="#" class="bg-red-500 text-white px-4 py-2 rounded">Get Tickets</a>
         </div>
       </div>
   </div>
 </header>
 
 
+
 <!---- ==========   Banner Section Design   ========== ---->
 <section class='banner'>
   <div class='container mx-auto'>
-    <div class="carousel w-full">
+<div class="w-full h-screen flex items-center justify-center" style="margin-top: -30px;">
+      <div class="">
+        <div
+          x-data="{ activeSlide: 1, slideCount: 3 }"
+          class="overflow-hidden relative"
+        >
+          <!-- Slider -->
+          <!-- You can remove x-init if you dont want to autoplay -->
+          <div class="whitespace-nowrap transition-transform duration-500 ease-in-out"
+            :style="'transform: translateX(-' + (activeSlide - 1) * 100.5 + '%)'"
+            x-init="setInterval(() => { activeSlide = activeSlide < slideCount ? activeSlide + 1 : 1 }, 5000)">
+ 
+            <!-- Item 1 -->
+            <div class="inline-block w-full relative" style="height: 80vh;">
+              <img class="" style="height: 800px;" src="assets/img/1.png"              alt=""/>
+              <div class="py-10 px-5 bg-black text-white bottom-0 mb-5 mr-5 right-0 lg:absolute text-center " style="width: 400px; ">
+                <h2 class="text-xl font-semibold">Meet all the heroes from the field</h2>
+                <p>Hockeys Clud is the best in this World.</p>
+              </div>
+            </div>
+            
+            <!-- Item 2 -->
+            <div class="inline-block w-full relative " style="height: 80vh;">
+              <img class="" style="height: 800px;" src="https://media.discordapp.net/attachments/1115232925227696158/1162511573454159972/U._couldy_nepal_ultra_realistic_drawn_oil_paint_artistic_breath_0729cff6-4a55-47b0-a1d3-869fddded125.png?ex=656a58c5&is=6557e3c5&hm=51a843affeb728b251fdaf8a32bb0a9d024022a24e04b76b5e04313079724ef3&=&width=1838&height=1030"              alt=""/>
+              <div class="py-10 px-5 bg-black text-white bottom-0 mb-5 mr-5 right-0 absolute text-center" style="width: 400px; ">
+                <h2 class="text-xl font-semibold">Connect With Hockeys</h2>
+                <p>Hockeys Clud is the best in this World.</p>
+              </div>
+            </div>
+            
+            <!-- Item 1 -->
+            <div class="inline-block w-full relative " style="height: 80vh;">
+              <img class="" style="height: 800px;" src="https://cdn.discordapp.com/attachments/1115232925227696158/1162509591804907720/maxresdefault.jpg?ex=656a56ed&is=6557e1ed&hm=8439a4c4ffe78fe86a5f0fade9c242bccd66293c31a191a1c0bdcf4e8e5b593a&"              alt=""/>
+              <div class="py-10 px-5 bg-black text-white bottom-0 mb-5 mr-5 right-0 absolute text-center" style="width: 400px; ">
+                <h2 class="text-xl font-semibold">Let's Make Your Career</h2>
+                <p>Hockeys Clud is the best in this World.</p>
+              </div>
+            </div>
+            
+            <!-- Item 2 -->
+            <div class="inline-block w-full" style="height: 80vh;">
+              <img
+                src="https://media.discordapp.net/attachments/1115232925227696158/1162511573454159972/U._couldy_nepal_ultra_realistic_drawn_oil_paint_artistic_breath_0729cff6-4a55-47b0-a1d3-869fddded125.png?ex=656a58c5&is=6557e3c5&hm=51a843affeb728b251fdaf8a32bb0a9d024022a24e04b76b5e04313079724ef3&=&width=1838&height=1030"
+                alt=""
+              />
+            </div>
+            <!-- Item 3 -->
+            <div class="inline-block w-full" style="height: 80vh;">
+              <img
+                src="https://media.discordapp.net/attachments/1115232925227696158/1176582193225674772/U._nepal_drawing_high_quality_detailed_b154b6b8-92d4-454d-b341-adef69152b5a.png?ex=656f648e&is=655cef8e&hm=6e6c76d481936f8115244a413165cd6a93fd686b4a9c83ee22ad378d70fffe8d&=&width=1838&height=1030"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <!-- Prev/Next Arrows -->
+          <div class="absolute inset-0 flex items-center justify-between px-2">
+            <button
+              @click="activeSlide = activeSlide > 1 ? activeSlide - 1 : slideCount"
+              class="w-[30px] h-[30px] flex items-center bg-black/30 text-white p-2 rounded-full"
+            >
+              &#8592;
+            </button>
+            <button
+              @click="activeSlide = activeSlide < slideCount ? activeSlide + 1 : 1"
+              class="w-[30px] h-[30px] flex items-center bg-black/30 text-white p-2 rounded-full"
+            >
+              &#8594;
+            </button>
+          </div>
+
+          <!-- Dots Navigation -->
+          <div
+            class="absolute bottom-0 left-0 right-0 flex justify-center space-x-2 p-4"
+          >
+            <template x-for="slideIndex in slideCount" :key="slideIndex">
+              <button
+                @click="activeSlide = slideIndex"
+                class="h-2 w-2 rounded-full"
+                :class="{'bg-orange-500': activeSlide === slideIndex, 'bg-white/50': activeSlide !== slideIndex}"
+              ></button>
+            </template>
+          </div>
+        </div>
+      </div>
+</div>
+
+    <!-- <div class="carousel w-full">
       <div id="slide1" class="carousel-item relative w-full">
         <img src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg" class="w-full" />
         <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -100,36 +190,36 @@
           <a href="#slide1" class="btn btn-circle">❯</a>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 
 
 <!---- ==========   SkillBar Section Design   ========== ---->
-<section class='py-20'>
+<section class='py-16'>
   <div class='container mx-auto text-center'>
       <h2 class="title text-4xl font-semibold">Professional Hockeys Club</h2>
-      <p class="w-3/5 mx-auto my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit totam tempora excepturi quis eos dignissimos sunt, dolorum error sint sequi?</p>
+      <p class="w-3/5 mx-auto my-4">Hockesy Club is te best club for hockey lover who wanted to make a glorious attatechment with hockey</p>
       <div class="grid grid-gaps-6 sm:grid-cols-1 lg:grid-cols-4">
         <div class="col-span-1 py-5">
           <div class="radial-progress text-red-600" style="--value:87;" role="progressbar">87%</div>
           <h2 class="text-lg font-semibold my-3">Prayer Facility</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <p>Hockeys Club Give you tha opertunity to prayer to Almighty</p>
         </div>
         <div class="col-span-1 py-5">
           <div class="radial-progress text-green-600" style="--value:95;" role="progressbar">95%</div>
           <h2 class="text-lg font-semibold my-3">Experienced Coach</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <p>We have the best coachs who perform best in the world.</p>
         </div>
         <div class="col-span-1 py-5">
           <div class="radial-progress text-yellow-500" style="--value:90;" role="progressbar">90%</div>
           <h2 class="text-lg font-semibold my-3">Senior Player</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <p>Hockeys Club have much more seniour player who perticipate in olympiad</p>
         </div>
         <div class="col-span-1 py-5">
           <div class="radial-progress text-primary" style="--value:80;" role="progressbar">80%</div>
           <h2 class="text-lg font-semibold my-3">Training Ground</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <p>500squer km grond are dedicated for Hockeys Club</p>
         </div>
       </div>
   </div>
@@ -137,33 +227,33 @@
 
 
 <!---- ==========   Image-Card Section Design   ========== ---->
-<section class='py-20'>
+<section class='py-16'>
   <div class='container mx-auto'>
       <h2 class="title text-4xl font-semibold text-center">Program Sections</h2>
-      <p class="w-3/5 mx-auto my-4 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit totam tempora excepturi quis eos dignissimos sunt, dolorum error sint sequi?</p>
-    <div class="grid gap-6 grid-cols-2 justify-center">
+      <p class="w-3/5 mx-auto my-4 text-center">Hockeys Club have a learge Programs so that every hockey lover would do better</p>
+    <div class="grid gap-6 lg:grid-cols-2  grid-cols-1 justify-center">
 
-      <div class="col-span-1 my-4">
-        <div class="card items-stretch items-center bg-base-100 shadow-xl image-full">
+      <div class="lg:col-span-1 col-span-2 my-4">
+        <div class="card items-stretch bg-base-100 shadow-xl image-full">
           <figure><img class="w-full" src="assets/img/2.png" alt="Shoes" /></figure>
           <div class="card-body align-middle">
-            <h2 class="card-title pt-32">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
+            <h2 class="card-title text-3xl pt-24">Junior Program</h2>
+            <p>Hockeys Club is perfect for junior player because we give them the ability to make a grorious oppertunity to make themeself shine in there hokey career life. Let's connect with Hockeys Club</p>
             <div class="card-actions">
-              <button class="btn bg-mycolor ">Buy Now</button>
+              <button class="btn bg-mycolor md:mt-4">Register Now!</button>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-span-1 my-4">
-        <div class="card bg-base-100 shadow-xl image-full">
+      <div class="lg:col-span-1 con-span-2 my-4">
+        <div class="card items-stretch bg-base-100 shadow-xl image-full">
           <figure><img class="w-full" src="assets/img/3.png" alt="Shoes" /></figure>
           <div class="card-body align-middle">
-            <h2 class="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
+            <h2 class="card-title text-3xl pt-24">Teenager Program</h2>
+            <p>Hockeys Club have also oppertunity for Teenagers. Teenager are the future hockeysian of Bangladesh. So Diffenetely we should give them oppertunity to explore there dream.</p>
             <div class="card-actions">
-              <button class="btn bg-mycolor ">Buy Now</button>
+              <button class="btn bg-mycolor md:mt-4">Learn More!</button>
             </div>
           </div>
         </div>
@@ -175,10 +265,10 @@
       <div class="card bg-base-100 shadow-xl image-full">
         <figure><img class="w-full" src="assets/img/4.png" alt="Shoes" /></figure>
         <div class="card-body align-middle">
-          <h2 class="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <h2 class="card-title text-3xl pt-44">Professional Program</h2>
+          <p class="w-4/5">Hockeys Club is the best hockey club in Dhaka.We have also oppertunity for Teenagers. Teenager are the future hockeysian of Bangladesh. So Diffenetely we should give them oppertunity to explore there dream. Hockeys Club is perfect for junior player because we give them the ability to make a grorious oppertunity to make themeself shine in there hokey career life. Let's connect with Hockeys Club</p>
           <div class="card-actions">
-            <button class="btn bg-mycolor ">Buy Now</button>
+            <button class="btn bg-mycolor md:mt-4">Register Now!</button>
           </div>
         </div>
       </div>
@@ -189,14 +279,14 @@
 </section>
 
 <!---- ==========   Product Section Design   ========== ---->
-<section class='py-20'>
+<section class='py-16'>
   <div class='container mx-auto'>
       <h2 class="title text-4xl font-semibold text-center">Our New Products</h2>
-      <p class="w-3/5 mx-auto my-4 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit totam tempora excepturi quis eos dignissimos sunt, dolorum error sint sequi?</p>
+      <p class="w-3/5 mx-auto my-4 text-center">Hockeys Club Also offers us so many product relavent hockey game.</p>
 
       <div class="grid lg:grid-cols-2 sm:grid-cols-1 sm:dire gap-6 py-5">
 
-        <div class="flex border-2 p-5 rounded-xl">
+        <div class="flex border-2 p-5 m-3 lg:m-0 rounded-xl">
             <img class="max-w-full" src="assets/img/5.png" alt="">
             <div class=" ml-6">
               <!-- Revide Icons  -->
@@ -205,7 +295,7 @@
                 <div class="flex text-lg mr-4"><i class="fa-regular fa-eye mt-1 mr-2"></i>400</div>
                 <div class="flex text-lg mr-4"><i class="fa-solid fa-heart mt-1 mr-2"></i>200</div>
               </div>
-              <h2 class="font-bold text-2xl my-3">World Cup Flags Football</h2>
+              <h2 class="font-bold text-2xl my-3">Hockeys Shart</h2>
               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, hic.</p>
               <div class="flex my-4 justify-between">
                 <div class="flex text-lg mr-4 font-semibold text-red-600">Price- $500</div>
@@ -241,7 +331,7 @@
                 <div class="flex text-lg mr-4"><i class="fa-regular fa-eye mt-1 mr-2"></i>400</div>
                 <div class="flex text-lg mr-4"><i class="fa-solid fa-heart mt-1 mr-2"></i>200</div>
               </div>
-              <h2 class="font-bold text-2xl my-3">World Cup Flags Football</h2>
+              <h2 class="font-bold text-2xl my-3">Hockeys Cap</h2>
               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, hic.</p>
               <div class="flex my-4 justify-between">
                 <div class="flex text-lg mr-4 font-semibold text-red-600">Price- $500</div>
@@ -259,7 +349,7 @@
                 <div class="flex text-lg mr-4"><i class="fa-regular fa-eye mt-1 mr-2"></i>400</div>
                 <div class="flex text-lg mr-4"><i class="fa-solid fa-heart mt-1 mr-2"></i>200</div>
               </div>
-              <h2 class="font-bold text-2xl my-3">World Cup Flags Football</h2>
+              <h2 class="font-bold text-2xl my-3">Hockeys tShart</h2>
               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, hic.</p>
               <div class="flex my-4 justify-between">
                 <div class="flex text-lg mr-4 font-semibold text-red-600">Price- $500</div>
@@ -277,7 +367,7 @@
                 <div class="flex text-lg mr-4"><i class="fa-regular fa-eye mt-1 mr-2"></i>400</div>
                 <div class="flex text-lg mr-4"><i class="fa-solid fa-heart mt-1 mr-2"></i>200</div>
               </div>
-              <h2 class="font-bold text-2xl my-3">World Cup Flags Football</h2>
+              <h2 class="font-bold text-2xl my-3">World Class Healmate</h2>
               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, hic.</p>
               <div class="flex my-4 justify-between">
                 <div class="flex text-lg mr-4 font-semibold text-red-600">Price- $500</div>
@@ -310,17 +400,17 @@
 </section>
 
 <!---- ==========   Client Section Design   ========== ---->
-<section class='py-20'>
+<section class='py-16'>
   <div class='container mx-auto'>
       <h2 class="title text-4xl font-semibold text-center">Clients Question</h2>
       <p class="w-3/5 mx-auto my-4 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit totam tempora excepturi quis eos dignissimos sunt, dolorum error sint sequi?</p>
 
       <div class="flex py-6 lg:flex-row sm:mt-6 flex-col">
-        <img src="assets/img/11.png" alt="">
+        <img src="assets/img/11.png" class="lg:mb-0 mb-5" alt="">
         <div class="w-full lg:mx-8">
           <div class="collapse collapse-plus bg-base-200 my-2">
             <input type="radio" name="my-accordion-3" checked="checked" /> 
-            <div class="collapse-title text-xl font-medium">
+            <div class="collapse-title text-xl sm:mt-10 font-medium">
               Our Equipment
             </div>
             <div class="collapse-content"> 
@@ -378,13 +468,13 @@
 </section>
 
 <!---- ==========   Contact Section Design   ========== ---->
-<section class='py-20'>
+<section class='pt-16'>
   <div class='container mx-auto'>
       <h2 class="title text-4xl font-semibold text-center">Get In Touch</h2>
       <p class="w-3/5 mx-auto my-4 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit totam tempora excepturi quis eos dignissimos sunt, dolorum error sint sequi?</p>
 
       <div class="flex lg:flex-row flex-col pt-5">
-        <div class="w-2/5 rounded-lg border-2 p-10">
+        <div class="lg:w-2/5 w-full mx-5 rounded-lg border-2 p-10">
 
           <div class="rounded-lg bg-slate-100 p-10 my-4">
             <img src="assets/img/Group 1171275317.png" alt="">
@@ -403,7 +493,7 @@
           </div>
 
         </div>
-        <div class="w-3/5 px-10 mt-5">
+        <div class="lg:w-3/5 w-full px-10 mt-5">
           <form>
             <div class="space-y-12">
               <div class="2">
@@ -475,12 +565,12 @@
 
 
 <br><br><br><br><br>
-<footer class="bg-gray-800 text-white dark:bg-gray-900 py-20">
+<footer class="bg-gray-800 text-white dark:bg-gray-900 lg:py-20 py-16">
   <div class="mx-auto container p-4 py-6 lg:py-8">
     <!-- Main Container  -->
-    <div class="grid lg:grid-cols-4 justify-items-center gap-8 sm:gap-6 sm:grid-cols-2">
+    <div class="grid lg:grid-cols-4 justify-items-center gap-8 sm:gap-6 grid-cols-2">
       
-      <div class="col-span-1">
+      <div class="lg:col-span-1 col-span-2 flex">
         <div class="mb-6 md:mb-0">
           <a href="#" class="flex items-center">
             <span class="self-center text-3xl mb-4 font-semibold whitespace-nowrap dark:text-white">Get In Touch</span>
@@ -497,7 +587,7 @@
         </div>
       </div>
 
-      <div class="col-span-1">
+      <div class="lg:col-span-1 col-span-1">
           <h2 class="mb-6 text-lg font-semibold  uppercase dark:text-white">Company</h2>
           <ul class="text-gray-300 dark:text-gray-400 font-medium">
               <li class="mb-2">
@@ -541,7 +631,7 @@
 
 
 
-        <div class="col-span-1">
+        <div class="col-span-2 lg:col-span-1">
             <h2 class="mb-4 text-lg font-semibold uppercase dark:text-white">Services</h2>
             <ul class="text-gray-300 dark:text-gray-100 font-medium">
                 <li class="my-2">
