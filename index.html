@@ -23,51 +23,84 @@
     </style>
   </head>
   <body>  
-<!-- component -->
-<header class="header bg-myCustomColor px-8 py-5">
-  <div class="container flex items-center justify-between mx-auto">
-        <!-- logo -->
-        <h1 class="w-3/12 text-4xl font-semibold">
-          Hockey’s
-        </h1>
 
-        <!-- navigation -->
-        <nav class="nav font-semibold text-lg">
-            <ul class="flex items-center">
-                <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer active">
-                  <a href="">Home</a>
-                </li>
-                <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
-                  <a href="">About</a>
-                </li>
-                <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
-                  <a href="">Blog</a>
-                </li>
-                <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
-                  <a href="">Pages</a>
-                </li>
-                <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
-                  <a href="">Contact</a>
-                </li>
-            </ul>
-        </nav>
-
-        <!-- buttons --->
-        <div class="w-3/12 flex justify-end">
-            <a href="#" class="mt-2 mr-4">
-                <svg class="h-8 p-1 hover:text-green-500 duration-200" aria-hidden="true" focusable="false" data-prefix="far" data-icon="search" role="img" xmlns="" viewBox="0 0 512 512" class="svg-inline--fa fa-search fa-w-16 fa-9x"><path fill="currentColor" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z" class=""></path></svg>
-            </a>
-            <button class="btn bg-mycolor">Get Tickets</button>
+<header>
+  <div class="">
+      <!-- Navigation -->
+      <div class="flex container mx-auto justify-between items-center  p-4">
+        <!-- Left Section - Website Name -->
+        <div class="order-2 sm:order-1">
+          <h1 class="text-4xl font-bold">Hockey’s</h1>
         </div>
+
+        <!-- Mobile Navigation (Hidden on larger screens) -->
+        <div class="lg:hidden order-1 sm:order-2">
+          <button id="toggleBtn" class="block px-2 py-1 text-gray-800">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+          <div id="mobileMenu" class="hidden">
+            <a href="#" class="block px-5 py-2 text-gray-800">Home</a>
+            <a href="#" class="block px-5 py-2 text-gray-800">About</a>
+            <a href="#" class="block px-5 py-2 text-gray-800">Services</a>
+            <a href="#" class="block px-5 py-2 text-gray-800">Pages</a>
+            <a href="#" class="block px-5 py-2 text-gray-800">Contact</a>
+          </div>
+        </div>
+
+        <!-- Desktop Navigation (Hidden on smaller screens) -->
+        <div class="hidden lg:flex justify-end items-center space-x-4 order-3">
+          <a href="#" class="text-gray-800 p-4 text-lg font-semibold">Home</a>
+          <a href="#" class="text-gray-800 p-4 text-lg font-semibold">About</a>
+          <a href="#" class="text-gray-800 p-4 text-lg font-semibold">Pages</a>
+          <a href="#" class="text-gray-800 p-4 text-lg font-semibold">Blog</a>
+          <a href="#" class="text-gray-800 p-4 text-lg font-semibold">Contact</a>
+        </div>
+
+        <!-- Right Section - Search Icon and Button -->
+        <div class="lg:flex items-center space-x-4 order-4">
+          <i class="fas fa-search text-gray-800 mr-4 text-xl hidden lg:flex"></i>
+          <a href="#" class="bg-red-500 text-white px-4 py-2 rounded">Button</a>
+        </div>
+      </div>
   </div>
 </header>
-
 
 
 <!---- ==========   Banner Section Design   ========== ---->
 <section class='banner'>
   <div class='container mx-auto'>
-    <img src="assets/img/1.png" class="w-screen mx-auto" alt="">
+    <div class="carousel w-full">
+      <div id="slide1" class="carousel-item relative w-full">
+        <img src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg" class="w-full" />
+        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <a href="#slide4" class="btn btn-circle">❮</a> 
+          <a href="#slide2" class="btn btn-circle">❯</a>
+        </div>
+      </div> 
+      <div id="slide2" class="carousel-item relative w-full">
+        <img src="https://daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg" class="w-full" />
+        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <a href="#slide1" class="btn btn-circle">❮</a> 
+          <a href="#slide3" class="btn btn-circle">❯</a>
+        </div>
+      </div> 
+      <div id="slide3" class="carousel-item relative w-full">
+        <img src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" class="w-full" />
+        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <a href="#slide2" class="btn btn-circle">❮</a> 
+          <a href="#slide4" class="btn btn-circle">❯</a>
+        </div>
+      </div> 
+      <div id="slide4" class="carousel-item relative w-full">
+        <img src="https://daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg" class="w-full" />
+        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <a href="#slide3" class="btn btn-circle">❮</a> 
+          <a href="#slide1" class="btn btn-circle">❯</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -350,9 +383,93 @@
       <h2 class="title text-4xl font-semibold text-center">Get In Touch</h2>
       <p class="w-3/5 mx-auto my-4 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit totam tempora excepturi quis eos dignissimos sunt, dolorum error sint sequi?</p>
 
+      <div class="flex lg:flex-row flex-col pt-5">
+        <div class="w-2/5 rounded-lg border-2 p-10">
+
+          <div class="rounded-lg bg-slate-100 p-10 my-4">
+            <img src="assets/img/Group 1171275317.png" alt="">
+            <p class="mt-4 mb-2">Phone Number</p>
+            <h4 class="text-xl font-semibold">(+62) 123-321-543</h4>
+          </div>
+          <div class="rounded-lg bg-slate-100 p-10 my-4">
+            <img src="assets/img/Group 1171275318.png" alt="">
+            <p class="mt-4 mb-2">Email</p>
+            <h4 class="text-xl font-semibold">hockeys@support.com</h4>
+          </div>
+          <div class="rounded-lg bg-slate-100 p-10 my-4">
+            <img src="assets/img/Group 1171275321.png" alt="">
+            <p class="mt-4 mb-2">Location</p>
+            <h4 class="text-xl font-semibold">152/1 Mohakhali Wireless Gate</h4>
+          </div>
+
+        </div>
+        <div class="w-3/5 px-10 mt-5">
+          <form>
+            <div class="space-y-12">
+              <div class="2">
+                <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          
+                  <div class="sm:col-span-3">
+                    <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
+                    <div class="mt-2">
+                      <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-gray-100">
+                    </div>
+                  </div>
+          
+                  <div class="sm:col-span-3">
+                    <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
+                    <div class="mt-2">
+                      <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-gray-100">
+                    </div>
+                  </div>
+          
+                  <div class="sm:col-span-3">
+                    <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Email Address</label>
+                    <div class="mt-2">
+                      <input type="email" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-gray-100">
+                    </div>
+                  </div>
+          
+                  <div class="sm:col-span-3">
+                    <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Phone Number</label>
+                    <div class="mt-2">
+                      <input type="number" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-gray-100">
+                    </div>
+                  </div>
+          
+                  <div class="w-full sm:col-span-6">
+                    <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Message</label>
+                    <div class="mt-2">
+                      <input type="textarea" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm h-60 bg-gray-100">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="mt-6 flex items-center justify-end gap-x-6">
+              <button type="submit" class="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 w-full">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="bg-gray-100 py-14 text-xl text-center rounded-xl mt-20">
+        <h2 class="text-2xl font-semibold mb-2">Social Media</h2>
+        <div>
+          <i class="fab fa-facebook m-2"></i>
+          <i class="fab fa-twitter m-2"></i>
+          <i class="fab fa-instagram m-2"></i>
+          <i class="fab fa-youtube m-2"></i>
+        </div>
+      </div>
     
   </div>
 </section>
+
+
+
+
 
 
 
@@ -447,6 +564,11 @@
 </footer>
 
 
-
+<script>
+  // Toggle mobile menu visibility
+  document.getElementById('toggleBtn').addEventListener('click', function() {
+    document.getElementById('mobileMenu').classList.toggle('hidden');
+  });
+</script>
   </body>
 </html>
