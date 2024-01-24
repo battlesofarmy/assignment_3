@@ -15,6 +15,9 @@
     <!-- Alpine.js -->
     <script src="//unpkg.com/alpinejs" defer></script>
     <style>
+      body{
+        background-color: white;
+      }
       .mycolor{
           color: #FF4240;
       }
@@ -89,7 +92,7 @@
             <!-- Item 1 -->
             <div class="inline-block w-full relative" style="height: 80vh;">
               <img class="" style="height: 800px;" src="assets/img/1.png"              alt=""/>
-              <div class="py-10 px-5 bg-black text-white bottom-0 mb-5 mr-5 right-0 lg:absolute text-center " style="width: 400px; ">
+              <div class="hidden lg:block py-10 px-5 bg-black text-white bottom-0 mb-5 mr-5 right-0 lg:absolute text-center " style="width: 400px; ">
                 <h2 class="text-xl font-semibold">Meet all the heroes from the field</h2>
                 <p>Hockeys Clud is the best in this World.</p>
               </div>
@@ -98,35 +101,21 @@
             <!-- Item 2 -->
             <div class="inline-block w-full relative " style="height: 80vh;">
               <img class="" style="height: 800px;" src="https://media.discordapp.net/attachments/1115232925227696158/1162511573454159972/U._couldy_nepal_ultra_realistic_drawn_oil_paint_artistic_breath_0729cff6-4a55-47b0-a1d3-869fddded125.png?ex=656a58c5&is=6557e3c5&hm=51a843affeb728b251fdaf8a32bb0a9d024022a24e04b76b5e04313079724ef3&=&width=1838&height=1030"              alt=""/>
-              <div class="py-10 px-5 bg-black text-white bottom-0 mb-5 mr-5 right-0 absolute text-center" style="width: 400px; ">
+              <div class="hidden lg:block py-10 px-5 bg-black text-white bottom-0 mb-5 mr-5 right-0 absolute text-center" style="width: 400px; ">
                 <h2 class="text-xl font-semibold">Connect With Hockeys</h2>
                 <p>Hockeys Clud is the best in this World.</p>
               </div>
             </div>
             
-            <!-- Item 1 -->
+            <!-- Item 3 -->
             <div class="inline-block w-full relative " style="height: 80vh;">
               <img class="" style="height: 800px;" src="https://cdn.discordapp.com/attachments/1115232925227696158/1162509591804907720/maxresdefault.jpg?ex=656a56ed&is=6557e1ed&hm=8439a4c4ffe78fe86a5f0fade9c242bccd66293c31a191a1c0bdcf4e8e5b593a&"              alt=""/>
-              <div class="py-10 px-5 bg-black text-white bottom-0 mb-5 mr-5 right-0 absolute text-center" style="width: 400px; ">
+              <div class="hidden lg:block py-10 px-5 bg-black text-white bottom-0 mb-5 mr-5 right-0 absolute text-center" style="width: 400px; ">
                 <h2 class="text-xl font-semibold">Let's Make Your Career</h2>
                 <p>Hockeys Clud is the best in this World.</p>
               </div>
             </div>
             
-            <!-- Item 2 -->
-            <div class="inline-block w-full" style="height: 80vh;">
-              <img
-                src="https://media.discordapp.net/attachments/1115232925227696158/1162511573454159972/U._couldy_nepal_ultra_realistic_drawn_oil_paint_artistic_breath_0729cff6-4a55-47b0-a1d3-869fddded125.png?ex=656a58c5&is=6557e3c5&hm=51a843affeb728b251fdaf8a32bb0a9d024022a24e04b76b5e04313079724ef3&=&width=1838&height=1030"
-                alt=""
-              />
-            </div>
-            <!-- Item 3 -->
-            <div class="inline-block w-full" style="height: 80vh;">
-              <img
-                src="https://media.discordapp.net/attachments/1115232925227696158/1176582193225674772/U._nepal_drawing_high_quality_detailed_b154b6b8-92d4-454d-b341-adef69152b5a.png?ex=656f648e&is=655cef8e&hm=6e6c76d481936f8115244a413165cd6a93fd686b4a9c83ee22ad378d70fffe8d&=&width=1838&height=1030"
-                alt=""
-              />
-            </div>
           </div>
 
           <!-- Prev/Next Arrows -->
@@ -160,6 +149,14 @@
         </div>
       </div>
 </div>
+
+
+<div class="lg:hidden py-10 px-5 mx-auto bg-black text-white mb-5 mr-5 text-center" style="width: 80%; ">
+  <h2 class="text-xl font-semibold">Meet all the heroes from the field</h2>
+  <p>Hockeys Clud is the best in this World.</p>
+</div>
+
+
 
     <!-- <div class="carousel w-full">
       <div id="slide1" class="carousel-item relative w-full">
@@ -287,7 +284,7 @@
       <div class="grid lg:grid-cols-2 sm:grid-cols-1 sm:dire gap-6 py-5">
 
         <div class="flex border-2 p-5 m-3 lg:m-0 rounded-xl">
-            <img class="max-w-full" src="assets/img/5.png" alt="">
+            <img class="lg:max-w-full w-32" src="assets/img/5.png" alt="">
             <div class=" ml-6">
               <!-- Revide Icons  -->
               <div class="flex">
@@ -305,7 +302,7 @@
         </div>
 
         <div class="flex border-2 p-5 rounded-xl">
-            <img class="max-w-full" src="assets/img/6.png" alt="">
+            <img class="lg:max-w-full w-32" src="assets/img/6.png" alt="">
             <div class=" ml-6">
               <!-- Revide Icons  -->
               <div class="flex">
@@ -323,7 +320,7 @@
         </div>
 
         <div class="flex border-2 p-5 rounded-xl">
-            <img class="max-w-full" src="assets/img/7.png" alt="">
+            <img class="lg:max-w-full w-32" src="assets/img/7.png" alt="">
             <div class=" ml-6">
               <!-- Revide Icons  -->
               <div class="flex">
@@ -341,7 +338,7 @@
         </div>
 
         <div class="flex border-2 p-5 rounded-xl">
-            <img class="max-w-full" src="assets/img/8.png" alt="">
+            <img class="lg:max-w-full w-32" src="assets/img/8.png" alt="">
             <div class=" ml-6">
               <!-- Revide Icons  -->
               <div class="flex">
@@ -359,7 +356,7 @@
         </div>
 
         <div class="flex border-2 p-5 rounded-xl">
-            <img class="max-w-full" src="assets/img/9.png" alt="">
+            <img class="lg:max-w-full w-32" src="assets/img/9.png" alt="">
             <div class=" ml-6">
               <!-- Revide Icons  -->
               <div class="flex">
@@ -377,7 +374,7 @@
         </div>
 
         <div class="flex border-2 p-5 rounded-xl">
-            <img class="max-w-full" src="assets/img/10.png" alt="">
+            <img class="lg:max-w-full w-32" src="assets/img/10.png" alt="">
             <div class=" ml-6">
               <!-- Revide Icons  -->
               <div class="flex">
